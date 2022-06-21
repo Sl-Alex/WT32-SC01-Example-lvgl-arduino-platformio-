@@ -36,7 +36,8 @@
       }
       
       bool begin() {
-        Wire.begin(m_sda, m_scl);
+        Wire.setPins(m_sda, m_scl);
+        Wire.begin();
         #ifdef TOUCHSCREEN_DEBUG
           Serial.print("Vend ID: 0x");
           Serial.println(readByteFromTouch(FT62XX_REG_VENDID), HEX);
